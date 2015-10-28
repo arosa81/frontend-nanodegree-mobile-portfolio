@@ -1,8 +1,60 @@
 <!DOCTYPE HTML>
-<html>
-<head>  
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/bootstrap-grid.css">
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cam's Pizzeria</title>
+  <!-- Inlining styles for performance reasons -->
+  <style media="screen">
+    * {
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      -box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Trebuchet MS", Helvetica, sans-serif;
+      background: black;
+    }
+
+    input {
+      background: grey;
+      font-size: 18px;
+    }
+
+    form {
+      display: inline-block;
+    }
+
+    .centered {
+      text-align: center;
+    }
+
+    #pizzaSize {
+      font-weight: 800;
+    }
+
+    .mover {
+      position: fixed;
+      width: 256px;
+      z-index: -1;
+    }
+
+    .randomPizzaContainer {
+      float: left;
+      display: flex;
+    }
+
+    .randomPizzaContainer:after {
+      content: "";
+      display: table;
+      clear:both;
+    }
+
+     .container {
+      background-color: rgba(240, 60, 60, 0.8);
+    }
+  </style>
 </head>
 
 <body>
@@ -36,12 +88,14 @@
     </div>
     <div id="callToAction" class="row">
       <div class="col-md-4">
-        <img src="images/pizzeria.jpg" class="img-responsive"> <!-- Image credit to: http://commons.wikimedia.org/wiki/File:HK_TST_night_%E5%98%89%E8%98%AD%E9%81%93_Granville_Road_restaurant_Paisano's_Pizzeria_pizza_Dec-2013.JPG -->
+         <img src="/views/images_compressed/sm_pizzeria.jpg" class="img-responsive" alt="pizzeria picture">
+
+        <!-- Image credit to: http://commons.wikimedia.org/wiki/File:HK_TST_night_%E5%98%89%E8%98%AD%E9%81%93_Granville_Road_restaurant_Paisano's_Pizzeria_pizza_Dec-2013.JPG -->
       </div>
       <div class="col-md-8">
         <div class="row">
           <div class="col-md-12">
-            <h2>We Have Hundreds of Pizza Recipes!</h2>            
+            <h2>We Have Hundreds of Pizza Recipes!</h2>
             <p>At Cam's Pizzeria, we know you want options. Pepperoni? Boring. Cheese? No way! Sausage? C'mon, let's get creative.</p>
 
             <p>We have every pizza ingredient imaginable in our kitchen because we know you take choice seriously. Take a look through our menu of hundreds of pizza options and we know that you'll find something you love.</p>
@@ -91,7 +145,8 @@
     </div>
     <div id="pizzaGenerator" class="row">
       <div class="col-md-12">
-        <h2 style="text-align: center">Our Pizzas!</h2>
+        <!-- <h2 style="text-align: center">Our Pizzas!</h2> -->
+        <h2 class="container">Our Pizzas!</h2>
         <div class="row">
           <div class="col-md-12">
             <em>What size pizza would you like? Use the slider below to change pizza sizes.</em>
@@ -104,7 +159,7 @@
         <div id="randomPizzas" class="row">
           <div id="pizza0" class="randomPizzaContainer" style="width:33.33%;">
             <div class="col-md-6">
-              <img src="images/pizza.png" class="img-responsive">
+              <img src="/views/images_compressed/pizza-large_large.png" class="img-responsive">
             </div>
             <div class="col-md-6">
               <h4>The Udacity Special</h4>
@@ -121,7 +176,7 @@
           </div>
           <div id="pizza1" class="randomPizzaContainer" style="width:33.33%;">
             <div class="col-md-6">
-              <img src="images/pizza.png" class="img-responsive">
+              <img src="/views/images_compressed/pizza-large_large.png" class="img-responsive">
             </div>
             <div class="col-md-6">
               <h4>The Cameron Special</h4>
@@ -135,9 +190,12 @@
         </div>
       </div>
     </div>
-    <div id="footer" class="col-md-12">Thanks for visiting! &copy; 2014 Udacity</div>
-  </div>
-  <script type="text/javascript" src="js/main.js"></script>
-</body>
-
+    <div class="col-md-12">Thanks for visiting! &copy; 2014 Udacity</div>
+    </div>
+    <footer>
+    </footer>
+    <!-- async'ed all css, moved below the fold, and applied media queries for css that doesn't need to run -->
+    <link async href="css/bootstrap-grid.min.css" rel="stylesheet">
+    <script async type="text/javascript" src="/views/js/main.min.js"></script>
+  </body>
 </html>
