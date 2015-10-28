@@ -52,16 +52,17 @@ Testing against [Google Developers Page Speed Insights](https://developers.googl
        ```
 
  1. Attempted to optimize the for-loop that creates and appends Pizzas by reading layout properties and batching style changes:
-      ``` bash
-         var pizzasDiv = document.getElementById("randomPizzas");
-         var ranPizzaContainer = document.getElementsByClassName("randomPizzaContainer");
-         'for (var i = 2; i < 100; i++) {
-           pizzasDiv.appendChild(pizzaElementGenerator(i));
-           ranPizzaContainer[i].style.width = "33.33%";
-           ranPizzaContainer[i].style.height = "325px";
-           ranPizzaContainer[i].id = "pizza" + i;
-         }'
-      ```
+
+ ``` bash
+    var pizzasDiv = document.getElementById("randomPizzas");
+    var ranPizzaContainer = document.getElementsByClassName("randomPizzaContainer");
+    'for (var i = 2; i < 100; i++) {
+      pizzasDiv.appendChild(pizzaElementGenerator(i));
+      ranPizzaContainer[i].style.width = "33.33%";
+      ranPizzaContainer[i].style.height = "325px";
+      ranPizzaContainer[i].id = "pizza" + i;
+    }'
+```
 
 1. Attempted to optimize the updatePositions() function:
     * moved scrollTop calculation and storing in phase array object
