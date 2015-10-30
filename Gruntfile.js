@@ -1,9 +1,11 @@
 /*
- After you have changed the settings at "Your code goes here",
- run this with one of these options:
+Options:
   "grunt" alone creates a new, completed images directory
   "grunt clean" removes the images directory
   "grunt responsive_images" re-processes images without removing the old ones
+  "grunt uglify" minify's javascript files
+  "grunt cssmin" minify's css files
+  "grunt minifyHtml" minify's HTML files
 */
 
 module.exports = function(grunt) {
@@ -91,7 +93,7 @@ module.exports = function(grunt) {
         },
         dist: {
             files: {
-                '*/index.html': '*/index.html'
+                '*/*.html': '*/*.min.html'
             }
         }
     },

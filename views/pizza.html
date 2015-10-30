@@ -195,8 +195,17 @@
     </div>
     <footer>
     </footer>
-    <!-- async'ed all css, moved below the fold, and applied media queries for css that doesn't need to run -->
-    <link async href="css/bootstrap-grid.min.css" rel="stylesheet">
-    <script async type="text/javascript" src="/views/js/main.min.js"></script>
+    <!-- Defering the loading of css and js -->
+    <script>
+      function downloadJSAtOnload() {
+        var element1 = document.createElement("script");
+        element1.src = "/views/js/main.min.js";
+        document.body.appendChild(element1);
+        var element2 = document.createElement("link"); element2.rel = 'stylesheet';
+        element2.href = "css/bootstrap-grid.min.css";
+        var h = document.getElementsByTagName('head')[0]; h.parentNode.insertBefore(element2, h);
+      }
+      window.onload = downloadJSAtOnload;
+    </script>
   </body>
 </html>

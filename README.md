@@ -3,6 +3,9 @@
 Hands on project that demonstrates techniques to optimize a bad performing website.
 Testing against [Google Developers Page Speed Insights](https://developers.google.com/speed/pagespeed/insights/)
 
+NOTE: Current functionality is not supported on the Safari web browser. Please use Firefox, chrome, or IE 11+.
+
+
 ### Getting started
 
 1. Check out the repository
@@ -89,4 +92,29 @@ Testing against [Google Developers Page Speed Insights](https://developers.googl
         for (var i = 0; i < itemLength; i++) {
           items[i].style.left = basicLefts[i] + 100 * phase[i%5] + 'px';
         }'
+    ```
+
+1. Refactored slidingPizzas function to not be an event listener since this is now handled in the script section of the pizza.html file. I have deferred the loading of css and js files (in pizza.html) until after DOM and all resources have completed loading. I have also updated the calculations for the number of sliding pizzas that get generated based on screen and pic size.
+
+    ``` bash
+        var slidingPizzas = function() {
+          var cols = 8;
+          var s = 256;
+          var currentScreenHeight = screen.height;
+          var pizzaPicHeight = 80;
+          var numRows = currentScreenHeight/pizzaPicHeight;
+          var numPizzas = numRows + cols;
+          for (var i = 0; i < numPizzas; i++) {
+            var elem = document.createElement('img');
+            elem.className = 'mover';
+            elem.src = "images_compressed/pizza-large_large.png";
+            elem.style.height = "100px";
+            elem.style.width = "73.333px";
+            elem.basicLeft = (i % cols) * s;
+            elem.style.top = (Math.floor(i / cols) * s) + 'px';
+            document.getElementById("movingPizzas1").appendChild(elem);
+          }
+          updatePositions();
+        };
+        slidingPizzas();
     ```

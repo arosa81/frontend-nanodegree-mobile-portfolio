@@ -493,14 +493,15 @@ function updatePositions() {
   frame++;
   window.performance.mark("mark_start_frame");
 
-  var items = document.querySelectorAll('.mover');
+  var items = document.getElementsByClassName('mover');
   var itemLength = items.length;
+  var scrollTopCalc = document.body.scrollTop / 1250;
   var phase = [];
   var basicLefts = [];
 
   // moved scrollTop calculation and storing in phase array object
   for (var j = 0; j < 5; j++) {
-    phase.push(Math.sin((document.body.scrollTop / 1250) + (j % 5)));
+    phase.push(Math.sin(scrollTopCalc + (j % 5)));
   }
 
   // moving basicLeft calculations and storing in basicLefts array object
@@ -527,11 +528,18 @@ function updatePositions() {
 window.addEventListener('scroll', updatePositions);
 
 // Generates the sliding pizzas when the page loads.
-document.addEventListener('DOMContentLoaded', function() {
+/**
+  Refactored to not be an event listener since in line script within pizza.html handles defering css and js.
+  Also updated calculations for number of sliding pizzas that get generated based on screen and pic size.
+**/
+var slidingPizzas = function() {
   var cols = 8;
   var s = 256;
-
-  for (var i = 0; i < 200; i++) {
+  var currentScreenHeight = screen.height;
+  var pizzaPicHeight = 80;
+  var numRows = currentScreenHeight/pizzaPicHeight;
+  var numPizzas = numRows + cols;
+  for (var i = 0; i < numPizzas; i++) {
     var elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images_compressed/pizza-large_large.png";
@@ -542,4 +550,5 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById("movingPizzas1").appendChild(elem);
   }
   updatePositions();
-});
+};
+slidingPizzas();
