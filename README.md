@@ -15,7 +15,7 @@ NOTE: Current functionality is not supported on the Safari web browser. Please u
   $> cd /path/to/your-project-folder
   $> python -m SimpleHTTPServer 8080
 
-  OR using [http-server] (https://www.npmjs.com/package/http-server)
+  OR using [http-server](https://www.npmjs.com/package/http-server)
 
   $> cd /path/to/your-project-folder
   $> http-server -p 8080
