@@ -5,6 +5,8 @@ Testing against [Google Developers Page Speed Insights](https://developers.googl
 
 NOTE: Current functionality is not supported on the Safari web browser. Please use Firefox, chrome, or IE 11+.
 
+A [live demo of this project site can be found here](http://arosa81.github.io/perfoptportfolio/).
+
 
 ### Getting started
 
